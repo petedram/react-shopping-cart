@@ -13,6 +13,10 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
+		console.log('item', item);
+		setCart([...cart, item]);
+		console.log('cart', cart);
+
 	};
 
 	return (
