@@ -17,15 +17,20 @@ function App() {
 	const addItem = item => {
 		// add the given item to the cart
 		console.log('item', item);
-		setCart([...cart, item]);
+		const cartID = Date.now();
+		const product = { ...item, cartID: cartID};
+
+		setCart([...cart, product]);
 		console.log('cart', cart);
+	
 
 	};
 
 	const removeItem = item => {
-		console.log('remove item', item)
+		console.log('remove item', item.cartID)
 		const newArray = cart.filter(function( obj ) {
-			return obj.id !== item;
+			console.log(item);
+			return obj.cartID !== item;
 		});
 		console.log('new array', newArray);
 		setCart(newArray);
